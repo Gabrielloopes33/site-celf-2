@@ -6,17 +6,18 @@ import { BenefitsSection } from "@/components/sections/benefits-section";
 import { UpgradeSection } from "@/components/sections/upgrade-section";
 import { AttributionsSection } from "@/components/sections/attributions-section";
 import { CTASection } from "@/components/sections/cta-section";
+import FAQSection from "@/components/sections/faq-section";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-      <HeroSection />
-      <IntroTextSection />
+  <HeroSection />
       <ServicesSection />
       <HowItWorksSection />
       <BenefitsSection />
       <UpgradeSection />
       <AttributionsSection />
+      <FAQSection />
       <CTASection />
     </div>
   );

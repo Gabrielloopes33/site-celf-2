@@ -22,12 +22,14 @@ export function Header() {
   return (
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? 'bg-blue-950/95 backdrop-blur-md border-b border-blue-200 shadow-sm' 
-        : 'bg-blue-950/90 backdrop-blur-md'
+        ? 'bg-blue-950/70 backdrop-blur-xl border-b border-blue-200 shadow-lg' 
+        : 'bg-blue-950/40 backdrop-blur-xl shadow-md'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
         <div className="flex justify-between items-center h-20">
-          <Logo />
+          <div className="flex items-center">
+            <Logo className="w-24 h-auto" />
+          </div>
 
           {/* Mobile menu button */}
           <div className="flex md:hidden">

@@ -47,32 +47,14 @@ export function AttributionsSection() {
     <section className="py-24 bg-gray-50">
       <Container>
         {/* Header */}
-        <div className="text-center mb-16 space-y-8">
-          <div className="flex items-center justify-center gap-4">
-            <ThumbsUp className="w-12 h-12 text-blue-600" />
-            <div className="text-left">
-              <Typography variant="large" className="font-semibold text-gray-900">
-                220k+ avaliações na app store
-              </Typography>
-              <Typography variant="p" className="text-gray-600">
-                50% dos condomínios no estado utilizam nossos serviços
-              </Typography>
-            </div>
+        <div className="text-center mb-12">
+            <h3 className="text-5xl font-bold text-gray-900 mb-4">
+              O que Nossos Clientes Dizem
+            </h3>
+            <p className="text-gray-600">
+              Histórias reais de transformação e crescimento
+            </p>
           </div>
-
-          <div className="flex items-center justify-center gap-2">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-8 h-8 text-yellow-400 fill-current" />
-            ))}
-            <Typography variant="large" className="ml-4 font-semibold text-gray-900">
-              4.9/5 estrelas
-            </Typography>
-          </div>
-
-              <Typography variant="h2" className="text-3xl lg:text-4xl font-bold text-gray-900">
-                As pessoas nos amam e isso &eacute; vis&iacute;vel.
-              </Typography>
-        </div>
 
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

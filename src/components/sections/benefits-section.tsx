@@ -1,87 +1,98 @@
+"use client";
+
 import { Container } from "@/components/ui/container";
 import { Typography } from "@/components/ui/typography";
 import { Card } from "@/components/ui/card";
+import { useState, useEffect } from "react";
+import { ShieldCheck, Users, Cloud, Sparkles } from "lucide-react";
+
+
+const benefits = [
+  {
+    title: "Projetado com uma abordagem centrada no ser humano.",
+    description: "Nossa profunda compreensão das necessidades dos moradores e do trabalho das pessoas na administração significa que sempre entregamos uma experiência de usuário de primeira linha.",
+    icon: <Users className="w-8 h-8 text-white" />, color: "from-blue-900 to-blue-500"
+  },
+  {
+    title: "O primeiro sistema de IA composível, construído para mudanças rápidas de políticas.",
+    description: "Construído especificamente para administração predial e outras organizações governamentais.",
+    icon: <Sparkles className="w-8 h-8 text-white" />, color: "from-blue-900 to-blue-500"
+  },
+  {
+    title: "Privacidade no centro.",
+    description: "Construído sobre uma base de padrões e protocolos inflexíveis, garantindo proteção robusta para dados sensíveis.",
+    icon: <ShieldCheck className="w-8 h-8 text-white" />, color: "from-blue-900 to-blue-500"
+  },
+  {
+    title: "Sucesso em escala.",
+    description: "Nossa plataforma nativa em nuvem garante conformidade e manutenção sem esforço, para que você possa se concentrar na entrega de benefícios.",
+    icon: <Cloud className="w-8 h-8 text-white" />, color: "from-blue-900 to-blue-500"
+  },
+];
 
 export function BenefitsSection() {
-  return (
-    <section className="py-24 bg-white">
-      <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <Typography variant="h2" className="text-3xl lg:text-4xl font-bold text-gray-900">
-                Projetado com uma abordagem centrada no ser humano.
-              </Typography>
-            </div>
-            
-            <Typography variant="large" className="text-xl text-gray-600 leading-relaxed">
-              Nossa profunda compreensão das necessidades dos moradores e do trabalho das pessoas 
-              na administração significa que sempre entregamos uma experiência de usuário de primeira linha.
-            </Typography>
-          </div>
+  const [visible, setVisible] = useState<number[]>([]);
 
-          {/* Right Content - Image placeholder */}
-          <div className="relative">
-            <Card className="p-8 bg-gradient-to-br from-green-50 to-blue-50 border-none">
-              <div className="aspect-[4/3] bg-gradient-to-br from-green-200 to-blue-200 rounded-lg flex items-center justify-center">
-                <Typography variant="large" className="text-green-800 font-semibold text-center">
-                  Imagem de pessoas <br />
-                  usando nossa plataforma
-                </Typography>
-              </div>
-            </Card>
-          </div>
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.getAttribute('data-index') || '0');
+            setVisible((prev) => (prev.includes(index) ? prev : [...prev, index]));
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    const cardEls = document.querySelectorAll('.benefit-card');
+    cardEls.forEach((card) => observer.observe(card));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section className="py-24 bg-gradient-to-br from-white via-blue-50 to-green-50">
+      <Container>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Benefícios de uma plataforma feita para pessoas
+          </h2>
         </div>
 
-        {/* Second Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mt-24">
-          {/* Left Content - Image placeholder */}
-          <div className="relative order-2 lg:order-1">
-            <Card className="p-8 bg-gradient-to-br from-purple-50 to-indigo-50 border-none">
-              <div className="aspect-[4/3] bg-gradient-to-br from-purple-200 to-indigo-200 rounded-lg flex items-center justify-center">
-                <Typography variant="large" className="text-purple-800 font-semibold text-center">
-                  Tecnologia <br />
-                  e inovação
-                </Typography>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          {benefits.map((benefit, index) => (
+            <div
+              key={index}
+              data-index={index}
+              className={`benefit-card group relative bg-gradient-to-br ${benefit.color} rounded-2xl p-8 flex flex-col items-start shadow-lg border border-purple-200 transition-all duration-700 transform ${
+                visible.includes(index)
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-8 opacity-0'
+              }`}
+              style={{ transitionDelay: `${index * 120}ms` }}
+            >
+              <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-white/20 mb-6">
+                {benefit.icon}
               </div>
-            </Card>
-          </div>
+              <h3 className="text-3xl font-black text-white mb-3">
+                {benefit.title}
+              </h3>
+              <p className="text-white text-lg">
+                {benefit.description}
+              </p>
+              
 
-          {/* Right Content */}
-          <div className="space-y-8 order-1 lg:order-2">
-            <div className="space-y-4">
-              <Typography variant="h2" className="text-3xl lg:text-4xl font-bold text-gray-900">
-                O primeiro sistema de IA composível, construído para mudanças rápidas de políticas.
-              </Typography>
+              <span className="absolute top-4 right-6 w-3 h-3 rounded-full bg-fuchsia-200"></span>
             </div>
-            
-            <Typography variant="large" className="text-xl text-gray-600 leading-relaxed">
-              Construído especificamente para administração predial e outras organizações governamentais.
-            </Typography>
+          ))}
+        </div>
 
-            <div className="space-y-6">
-              <div>
-                <Typography variant="h4" className="text-lg font-semibold text-gray-900 mb-2">
-                  Privacidade no centro.
-                </Typography>
-                <Typography variant="p" className="text-gray-600">
-                  Construído sobre uma base de padrões e protocolos inflexíveis, 
-                  garantindo proteção robusta para dados sensíveis.
-                </Typography>
-              </div>
-
-              <div>
-                <Typography variant="h4" className="text-lg font-semibold text-gray-900 mb-2">
-                  Sucesso em escala.
-                </Typography>
-                <Typography variant="p" className="text-gray-600">
-                  Nossa plataforma nativa em nuvem garante conformidade e manutenção sem esforço, 
-                  para que você possa se concentrar na entrega de benefícios.
-                </Typography>
-              </div>
-            </div>
+        {/* Espaço para fotos ou galeria - agora maior, cobrindo toda a largura */}
+        <div className="w-full flex flex-col items-center">
+          <div className="w-full aspect-[4/1] bg-gradient-to-br from-purple-100 via-fuchsia-100 to-pink-100 rounded-2xl flex items-center justify-center mb-4">
+            <span className="text-purple-700 font-semibold text-2xl text-center">Espaço reservado para fotos ou galeria</span>
           </div>
+          {/* Adicione aqui sua galeria de imagens ou componentes de foto */}
         </div>
       </Container>
     </section>
