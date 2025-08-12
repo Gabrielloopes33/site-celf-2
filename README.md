@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CELF - Serviços de Conservação e Manutenção
 
-## Getting Started
+Site institucional da CELF, empresa especializada em soluções completas para conservação e manutenção de espaços condominiais, comerciais e industriais.
 
-First, run the development server:
+## Tecnologias Utilizadas
+
+- [Next.js 15](https://nextjs.org/) - Framework React com renderização do lado do servidor
+- [Radix UI](https://www.radix-ui.com/) - Biblioteca de componentes de interface acessíveis
+- [TailwindCSS](https://tailwindcss.com/) - Framework CSS utilitário
+- [TypeScript](https://www.typescriptlang.org/) - Linguagem tipada baseada em JavaScript
+
+## Mapa do Site
+
+- **Home** (`/`) - Página inicial com visão geral da empresa e serviços
+- **Serviços**
+  - Overview (`/servicos`) - Visão geral dos serviços
+  - Conservação Condominial (`/servicos/conservacao-condominial`) - Serviços para condomínios
+  - Conservação Comercial (`/servicos/conservacao-comercial`) - Serviços para espaços comerciais
+  - Implantação Industrial (`/servicos/implantacao-industrial`) - Serviços para indústrias
+  - Obras (`/servicos/obras`) - Reformas e construções
+- **Como Funciona** (`/como-funciona`) - Fluxo operacional e papéis
+- **Área do Cliente** (`/area-do-cliente`) - Benefícios para moradores e síndicos
+- **Transparência Financeira** (`/transparencia-financeira`) - Prestação de contas
+- **Vem Aí** (`/vem-ai/cameras`) - Módulos em validação
+- **Sobre** (`/sobre`) - Informações institucionais
+- **Contato** (`/contato`) - Solicitação de proposta/demonstração
+- **FAQ** (`/faq`) - Perguntas frequentes
+
+## Jornada do Usuário
+
+O site foi estruturado seguindo a jornada do usuário:
+1. **Descobrir** - Apresentação da empresa e serviços
+2. **Confiar** - Demonstração de credibilidade e experiência
+3. **Solicitar Proposta** - Conversão do visitante em lead/cliente
+
+## Executando o Projeto
+
+Primeiro, instale as dependências:
+
+```bash
+npm install
+```
+
+Em seguida, execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Desenvolvimento
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Estrutura de Arquivos
 
-## Learn More
+- `src/app/` - Rotas e páginas da aplicação
+- `src/components/` - Componentes reutilizáveis
+  - `layout/` - Componentes de layout (header, footer)
+  - `ui/` - Componentes de interface (botões, formulários)
+- `public/` - Arquivos estáticos (imagens, fontes)
 
-To learn more about Next.js, take a look at the following resources:
+### Personalização
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Para personalizar cores, tipografia e outros aspectos visuais, edite:
+- `src/app/globals.css` - Estilos globais e variáveis CSS
+- `src/components/ui/` - Componentes de interface personalizados
