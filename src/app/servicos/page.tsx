@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Building2, Wrench, ClipboardCheck } from "lucide-react";
+import { Building2, Wrench, ClipboardCheck, ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 const servicesGroups = {
@@ -139,6 +139,22 @@ export default function ServicosPage() {
               <p className="text-xl sm:text-2xl mb-8 text-gray-300">
                 Atendimento personalizado e expertise técnica para cada necessidade do seu negócio
               </p>
+              <div className="flex justify-center">
+                <Button
+                  asChild
+                  variant="secondary"
+                  size="lg"
+                  className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 text-lg font-semibold shadow-lg"
+                >
+                  <Link href="/como-funciona">
+                    Quero saber como funciona
+                  </Link>
+                </Button>
+              </div>
+              {/* Ícone para descer */}
+              <div className="flex justify-center mt-8 animate-bounce py-15">
+                <ChevronDown className="w-10 h-10 md:w-12 md:h-12 text-white/80" />
+              </div>
             </div>
           </div>
         </section>
@@ -186,7 +202,7 @@ export default function ServicosPage() {
                           <Button 
                             variant="outline" 
                             size="lg"
-                            className="text-gray-800 hover:text-gray-900 border-gray-400 hover:bg-gray-100"
+                            className="text-white-800 hover:text-white-900 border-gray-400 hover:bg-gray-100"
                             onClick={(e) => {
                               e.preventDefault();
                               setExpandedService(null);

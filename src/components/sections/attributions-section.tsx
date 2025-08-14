@@ -8,37 +8,37 @@ const testimonials = [
     name: "Maria Silva",
     role: "Síndica do Residencial Solar",
     rating: 5,
-  comment: "Excelente atendimento! A equipe &eacute; muito profissional e sempre resolve nossos problemas rapidamente. Recomendo muito o trabalho deles."
+    comment: "Excelente atendimento! A equipe é muito profissional e sempre resolve nossos problemas rapidamente. Recomendo muito o trabalho deles."
   },
   {
     name: "João Santos",
     role: "Administrador Predial",
     rating: 5,
-  comment: "Trabalho impec&aacute;vel. A gest&atilde;o financeira melhorou muito desde que contratamos os servi&ccedil;os. Transpar&ecirc;ncia total nos relat&oacute;rios."
+    comment: "Trabalho impecável. A gestão financeira melhorou muito desde que contratamos os serviços. Transparência total nos relatórios."
   },
   {
     name: "Ana Costa",
     role: "Moradora do Condomínio Verde",
     rating: 5,
-  comment: "Muito satisfeita com a limpeza e manuten&ccedil;&atilde;o. O condom&iacute;nio nunca esteve t&atilde;o bem cuidado. Equipe muito educada e eficiente."
+    comment: "Muito satisfeita com a limpeza e manutenção. O condomínio nunca esteve tão bem cuidado. Equipe muito educada e eficiente."
   },
   {
     name: "Pedro Oliveira",
     role: "Síndico do Edifício Central",
     rating: 5,
-  comment: "A portaria est&aacute; funcionando perfeitamente. Sistema de seguran&ccedil;a moderno e funcion&aacute;rios bem treinados. Parab&eacute;ns pelo servi&ccedil;o!"
+    comment: "A portaria está funcionando perfeitamente. Sistema de segurança moderno e funcionários bem treinados. Parabéns pelo serviço!"
   },
   {
     name: "Carla Ferreira",
     role: "Administradora",
     rating: 5,
-  comment: "Relat&oacute;rios sempre em dia e muito detalhados. A gest&atilde;o de inadimpl&ecirc;ncia melhorou significativamente. Excelente parceria!"
+    comment: "Relatórios sempre em dia e muito detalhados. A gestão de inadimplência melhorou significativamente. Excelente parceria!"
   },
   {
     name: "Roberto Lima",
     role: "Síndico do Residencial Atlântida",
     rating: 5,
-  comment: "Manuten&ccedil;&atilde;o preventiva excelente! Evitamos v&aacute;rios problemas gra&ccedil;as ao trabalho preventivo da equipe. Muito profissionais."
+    comment: "Manutenção preventiva excelente! Evitamos vários problemas graças ao trabalho preventivo da equipe. Muito profissionais."
   }
 ];
 

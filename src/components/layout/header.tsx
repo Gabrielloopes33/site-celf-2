@@ -60,6 +60,12 @@ export function Header() {
             <Link href="/sobre" className="text-amber-50 hover:text-blue-600 font-medium transition-colors">
               Sobre
             </Link>
+            <Link href="/blog" className="text-amber-50 hover:text-blue-600 font-medium transition-colors">
+              Blog
+            </Link>
+            <Link href="/port" className="text-amber-50 hover:text-blue-600 font-medium transition-colors">
+              Portfólio
+            </Link>
           </nav>
 
           {/* Contact Info & CTA */}
