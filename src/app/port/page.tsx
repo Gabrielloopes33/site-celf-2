@@ -10,9 +10,9 @@ const portfolio = [
 		type: "Conservação",
 		icon: <Leaf className="text-green-600 w-6 h-6" />,
 		images: [
-			"/portfolio/solar-1.jpg",
-			"/portfolio/solar-2.jpg",
-			"/portfolio/solar-3.jpg",
+			"/portfolio/RESIDENCIAL 1.jpg",
+			"/portfolio/RSIDENCIAL 2.jpeg",
+			
 		],
 	},
 	{
@@ -20,9 +20,10 @@ const portfolio = [
 		type: "Obra",
 		icon: <Hammer className="text-yellow-600 w-6 h-6" />,
 		images: [
-			"/portfolio/central-1.jpg",
-			"/portfolio/central-2.jpg",
-			"/portfolio/central-3.jpg",
+			"/portfolio/judith 1.jpeg",
+			"/portfolio/judith 2.jpeg",
+			"/portfolio/judith 3.jpeg",
+			"/portfolio/judith 4.jpeg",
 		],
 	},
 	{
@@ -30,9 +31,8 @@ const portfolio = [
 		type: "Manutenção",
 		icon: <Wrench className="text-blue-600 w-6 h-6" />,
 		images: [
-			"/portfolio/alfa-1.jpg",
-			"/portfolio/alfa-2.jpg",
-			"/portfolio/alfa-3.jpg",
+			"/portfolio/COMERC 1.jpeg",
+			"/portfolio/COMERC 2.jpg",
 		],
 	},
 
@@ -41,9 +41,9 @@ const portfolio = [
 		type: "Conservação",
 		icon: <Leaf className="text-green-600 w-6 h-6" />,
 		images: [
-			"/portfolio/solar-1.jpg",
-			"/portfolio/solar-2.jpg",
-			"/portfolio/solar-3.jpg",
+			"/portfolio/CLINICA 1.jpg",
+			"/portfolio/CLINICA 2.jpg",
+			
 		],
 	},
 	{
@@ -51,9 +51,10 @@ const portfolio = [
 		type: "Obra",
 		icon: <Hammer className="text-yellow-600 w-6 h-6" />,
 		images: [
-			"/portfolio/central-1.jpg",
-			"/portfolio/central-2.jpg",
-			"/portfolio/central-3.jpg",
+			"/portfolio/igreja 1.jpeg",
+			"/portfolio/igreja 2.jpeg",
+			"/portfolio/igreja 3.jpeg",
+			"/portfolio/igreja 4.jpeg",
 		],
 	},
 	{
@@ -61,9 +62,9 @@ const portfolio = [
 		type: "Manutenção",
 		icon: <Wrench className="text-blue-600 w-6 h-6" />,
 		images: [
-			"/portfolio/alfa-1.jpg",
-			"/portfolio/alfa-2.jpg",
-			"/portfolio/alfa-3.jpg",
+			"/portfolio/campo belo 1.jpg",
+			"/portfolio/campo belo 2.jpg",
+			
 		],
 	},
 ];

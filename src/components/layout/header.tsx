@@ -113,6 +113,20 @@ export function Header() {
             >
               Sobre
             </Link>
+            <Link 
+              href="/sobre" 
+              className="block px-4 py-3 rounded-lg text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Blog
+            </Link>
+            <Link 
+              href="/sobre" 
+              className="block px-4 py-3 rounded-lg text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Portfólio
+            </Link>
             
             <div className="pt-4 border-t border-gray-100">
               <div className="flex items-center justify-center mb-4 text-sm text-gray-600">
