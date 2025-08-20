@@ -88,11 +88,11 @@ export function Footer() {
               </li>
               <li className="flex items-center">
                 <Phone size={16} className="mr-2 flex-shrink-0" />
-                <span>(11) 9999-9999</span>
+                <span>(31) 9 8669-0368</span>
               </li>
               <li className="flex items-center">
                 <Mail size={16} className="mr-2 flex-shrink-0" />
-                <span>contato@celf.com.br</span>
+                <span>fabiano.lopes@celf-empreendimentos.com.br</span>
               </li>
             </ul>
           </div>

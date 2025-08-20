@@ -72,9 +72,9 @@ export function Header() {
           <div className="hidden md:flex items-center space-x-6">
             <div className="flex items-center text-sm text-amber-50">
               <Phone className="w-4 h-4 mr-2 text-blue-600" />
-              <span className="font-medium">(11) 99999-9999</span>
+              <span className="font-medium">(31) 9 8669-0368</span>
             </div>
-            <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white">
+            <Button asChild className="bg-orange-600 hover:bg-orange-800 text-white">
               <Link href="/contato">Solicitar Proposta</Link>
             </Button>
           </div>

@@ -15,8 +15,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CELF - Soluções para Conservação e Manutenção",
+  title: "CELF — Soluções para Conservação e Manutenção",
   description: "Soluções completas para conservação e manutenção de espaços condominiais, comerciais e industriais",
+  icons: {
+    icon: "/favicon.ico",               // navegadoes
+    shortcut: "/favicon.ico",           // atalho
+    apple: "/apple-touch-icon.png"      // iOS
+  }
 };
 
 export default function RootLayout({

@@ -11,10 +11,10 @@ export default function ContatoPage() {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-white via-gray-50 to-purple-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white py-20 shadow-lg">
-        <div className="container mx-auto px-4">
+      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white py-20 shadow-lg py-20">
+        <div className="container mx-auto px-4 py-40">
           <div className="max-w-3xl">
-            <h1 className="text-5xl font-extrabold mb-4 drop-shadow-lg">
+            <h1 className="text-5xl font-extrabold mb-4 drop-shadow-lg ">
               Solicite Uma Proposta
             </h1>
             <p className="text-2xl mb-2 font-medium opacity-90">
@@ -202,6 +202,15 @@ export default function ContatoPage() {
                     <span className="font-medium text-gray-900">Domingo e Feriados</span>
                     <span className="text-gray-800">Fechado</span>
                   </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-8 rounded-2xl shadow-2xl border border-gray-100">
+                <h3 className="text-2xl font-bold text-blue-900 mb-4">Fale direto no nosso Whatsapp</h3>
+                <div className="space-y-2">
+                  <Button type="submit" className="w-full text-lg py-4 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-900 hover:to-green-200 transition-colors">
+                    Whatsapp CELF
+                  </Button>
                 </div>
               </div>
             </div>
