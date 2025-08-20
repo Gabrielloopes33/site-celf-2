@@ -7,7 +7,6 @@ import { ArrowRight } from "lucide-react";
 const solutions = [
   { name: "Administração Predial", href: "/servicos/administracao" },
   { name: "Manutenção Preventiva", href: "/servicos/manutencao" },
-  { name: "Gestão de Portaria", href: "/servicos/portaria" },
   { name: "Limpeza & Conservação", href: "/servicos/limpeza" },
   { name: "Gestão Financeira", href: "/servicos/financeiro" },
   { name: "Consultoria Técnica", href: "/servicos/consultoria" }
