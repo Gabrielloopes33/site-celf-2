@@ -3,9 +3,31 @@ import path from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 
-const postsDirectory = path.join(process.cwd(), '_posts');
+// Atualiza o caminho para apontar para a pasta posts na raiz
+const postsDirectory = path.join(process.cwd(), 'posts');
 
-export function getAllPosts() {
+// Tipo para os dados retornados por getAllPosts
+export type PostSummary = {
+  slug: string;
+  title: string;
+  date: string;
+  author?: string;
+  image?: string;
+  excerpt?: string;
+};
+
+// Tipo para os dados retornados por getPostData
+export type BlogPostData = {
+  slug: string;
+  title: string;
+  date: string;
+  author?: string;
+  excerpt?: string;
+  image?: string;
+  content: string; // HTML content
+};
+
+export function getAllPosts(): PostSummary[] {
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map(fileName => {
     const slug = fileName.replace(/\.md$/, '');
@@ -13,9 +35,16 @@ export function getAllPosts() {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
 
+    // Garantir que as propriedades esperadas estejam presentes
+    const data = matterResult.data;
+    
     return {
       slug,
-      ...(matterResult.data as { title: string; date: string; author: string; image: string; tags: string[]; excerpt: string; }),
+      title: (data.title as string) || '',
+      date: (data.date as string) || '',
+      author: data.author as string | undefined,
+      image: data.image as string | undefined,
+      excerpt: data.excerpt as string | undefined,
     };
   });
 
@@ -29,15 +58,32 @@ export function getAllPosts() {
 }
 
 export async function getPostData(slug: string) {
-  const fullPath = path.join(postsDirectory, `${slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const matterResult = matter(fileContents);
+  try {
+    const fullPath = path.join(postsDirectory, `${slug}.md`);
+    
+    if (!fs.existsSync(fullPath)) {
+      console.error(`File not found: ${fullPath}`);
+      return null;
+    }
 
-  const processedContent = await marked(matterResult.content);
-  
-  return {
-    slug,
-    contentHtml: processedContent,
-    ...(matterResult.data as { title: string; date: string; author: string; image: string; tags: string[] }),
-  };
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const { data, content } = matter(fileContents);
+    
+    // Convert markdown to HTML
+    const htmlContent = marked(content);
+
+    // Garantir que as propriedades esperadas estejam presentes
+    return {
+      slug,
+      title: (data.title as string) || '',
+      date: (data.date as string) || '',
+      author: data.author as string | undefined,
+      excerpt: data.excerpt as string | undefined,
+      image: data.image as string | undefined,
+      content: htmlContent || '',
+    };
+  } catch (error) {
+    console.error(`Error loading post ${slug}:`, error);
+    return null;
+  }
 }
