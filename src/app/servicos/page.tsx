@@ -3,114 +3,121 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Building2, Wrench, ClipboardCheck, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
+// Componente Meteors com posições fixas para evitar hidratação
+const Meteors = ({ number = 20 }: { number?: number }) => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null; // Não renderiza no servidor
+  }
+
+  // Posições fixas para evitar erro de hidratação
+  const fixedPositions = [
+    { left: '10%', top: '20%', delay: '0s' },
+    { left: '25%', top: '10%', delay: '1s' },
+    { left: '40%', top: '30%', delay: '2s' },
+    { left: '60%', top: '15%', delay: '0.5s' },
+    { left: '75%', top: '25%', delay: '1.5s' },
+    { left: '90%', top: '5%', delay: '2.5s' },
+    { left: '15%', top: '60%', delay: '3s' },
+    { left: '30%', top: '70%', delay: '0.2s' },
+    { left: '50%', top: '80%', delay: '1.2s' },
+    { left: '70%', top: '65%', delay: '2.2s' },
+    { left: '85%', top: '75%', delay: '3.2s' },
+    { left: '5%', top: '45%', delay: '0.8s' },
+    { left: '35%', top: '50%', delay: '1.8s' },
+    { left: '55%', top: '40%', delay: '2.8s' },
+    { left: '80%', top: '35%', delay: '0.3s' },
+    { left: '20%', top: '85%', delay: '1.3s' },
+    { left: '45%', top: '95%', delay: '2.3s' },
+    { left: '65%', top: '90%', delay: '3.3s' },
+    { left: '95%', top: '55%', delay: '0.7s' },
+    { left: '12%', top: '75%', delay: '1.7s' },
+  ];
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {fixedPositions.slice(0, number).map((meteor, i) => (
+        <div key={i}>
+          {/* Meteoro principal */}
+          <div
+            className="absolute w-1 h-1 bg-blue-400 rounded-full animate-meteor opacity-80"
+            style={{
+              left: meteor.left,
+              top: meteor.top,
+              animationDelay: meteor.delay,
+              animationDuration: '4s',
+            }}
+          />
+          {/* Trail do meteoro */}
+          <div
+            className="absolute w-8 h-0.5 bg-gradient-to-r from-blue-400 to-transparent rounded-full animate-meteor opacity-60"
+            style={{
+              left: meteor.left,
+              top: meteor.top,
+              animationDelay: meteor.delay,
+              animationDuration: '4s',
+            }}
+          />
+          {/* Meteoro brilhante ocasional */}
+          {i % 3 === 0 && (
+            <div
+              className="absolute w-2 h-2 bg-white rounded-full animate-meteor opacity-90 shadow-lg shadow-blue-400/50"
+              style={{
+                left: meteor.left,
+                top: meteor.top,
+                animationDelay: meteor.delay,
+                animationDuration: '4s',
+              }}
+            />
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+// Definição dos grupos de serviços
 const servicesGroups = {
-  manutencao: {
-    title: "Conservação e Manutenção",
-    subtitle: "Soluções completas para conservação de ambientes corporativos e residenciais",
+  construccao: {
+    title: "Construção e Reformas",
+    subtitle: "Soluções completas para seus projetos de construção",
     services: [
       {
-        icon: <Building2 size={24} className="text-primary" />,
-        title: "Conservação Condominial",
-        description: "Oferecemos serviços completos para manutenção e conservação de condomínios residenciais, incluindo limpeza, jardinagem, manutenção preventiva de equipamentos e áreas comuns.",
-        details: (
-          <>
-            <p className="mb-4">Nossa equipe especializada realiza a gestão completa da conservação condominial, garantindo ambientes limpos, seguros e bem cuidados. Utilizamos técnicas modernas e produtos certificados para proporcionar o melhor resultado aos moradores.</p>
-            <ul className="list-disc pl-5 mb-4 text-gray-300">
-              <li>Limpeza e higienização de áreas comuns com cronograma personalizado</li>
-              <li>Jardinagem, paisagismo e manutenção de áreas verdes</li>
-              <li>Manutenção preventiva e corretiva de equipamentos</li>
-              <li>Pintura, pequenos reparos e conservação de fachadas</li>
-              <li>Relatórios periódicos de execução e acompanhamento</li>
-            </ul>
-            <p className="mb-2 font-semibold text-white">Diferenciais:</p>
-            <ul className="list-disc pl-5 text-gray-300">
-              <li>Equipe treinada e uniformizada</li>
-              <li>Atendimento emergencial 24h</li>
-              <li>Gestão de resíduos e sustentabilidade</li>
-            </ul>
-          </>
-        ),
-        link: "/contato"
+        title: "Construção Civil",
+        description: "Projetos completos de construção residencial e comercial com qualidade e pontualidade.",
+        details: "Oferecemos serviços completos de construção, desde o planejamento até a entrega final. Nossa equipe experiente garante qualidade em cada etapa do processo.",
+        icon: <Building2 className="w-8 h-8" />
       },
       {
-        icon: <Building2 size={24} className="text-primary" />,
-        title: "Conservação Comercial",
-        description: "Serviços especializados para espaços comerciais e empresariais, garantindo ambientes limpos, organizados e bem mantidos para colaboradores e clientes.",
-        details: (
-          <>
-            <p className="mb-4">Atendemos empresas de todos os portes com soluções sob medida para conservação de ambientes corporativos. Nosso foco é proporcionar conforto, segurança e boa impressão para clientes e colaboradores.</p>
-            <ul className="list-disc pl-5 mb-4 text-gray-300">
-              <li>Limpeza profissional de escritórios e áreas administrativas</li>
-              <li>Higienização de áreas de grande circulação e sanitários</li>
-              <li>Manutenção de sistemas de ar-condicionado e ventilação</li>
-              <li>Gestão de resíduos e coleta seletiva</li>
-              <li>Controle de pragas e sanitização</li>
-            </ul>
-            <p className="mb-2 font-semibold text-white">Diferenciais:</p>
-            <ul className="list-disc pl-5 text-gray-300">
-              <li>Flexibilidade de horários para não impactar a operação</li>
-              <li>Produtos certificados e ecológicos</li>
-              <li>Relatórios de execução e acompanhamento digital</li>
-            </ul>
-          </>
-        ),
-        link: "/contato"
+        title: "Reformas e Renovações",
+        description: "Transformação de espaços existentes com design moderno e funcionalidade aprimorada.",
+        details: "Especializados em reformas que valorizam seu imóvel, desde pequenas modificações até grandes renovações.",
+        icon: <Wrench className="w-8 h-8" />
       }
     ]
   },
-  industrial: {
-    title: "Soluções Industriais",
-    subtitle: "Implementação e manutenção especializada para ambientes industriais",
+  manutencao: {
+    title: "Manutenção e Reparos",
+    subtitle: "Manutenção preventiva e corretiva para seu patrimônio",
     services: [
       {
-        icon: <Wrench size={24} className="text-primary" />,
-        title: "Implantação Industrial",
-        description: "Soluções técnicas completas para implementação e manutenção de espaços industriais, garantindo segurança, eficiência e conformidade com normas técnicas.",
-        details: (
-          <>
-            <p className="mb-4">Oferecemos suporte técnico desde a implantação até a manutenção de ambientes industriais, sempre em conformidade com as normas vigentes e priorizando a segurança operacional.</p>
-            <ul className="list-disc pl-5 mb-4 text-gray-300">
-              <li>Instalação e manutenção de equipamentos industriais</li>
-              <li>Manutenção preventiva e corretiva de sistemas elétricos e hidráulicos</li>
-              <li>Adequação de layout e infraestrutura</li>
-              <li>Gestão de documentação técnica e laudos</li>
-              <li>Treinamento de equipes para operação segura</li>
-            </ul>
-            <p className="mb-2 font-semibold text-white">Diferenciais:</p>
-            <ul className="list-disc pl-5 text-gray-300">
-              <li>Equipe técnica certificada</li>
-              <li>Atendimento emergencial e contratos flexíveis</li>
-              <li>Monitoramento remoto de equipamentos</li>
-            </ul>
-          </>
-        ),
-        link: "/contato"
+        title: "Manutenção Predial",
+        description: "Serviços especializados de manutenção para condomínios e edifícios comerciais.",
+        details: "Manutenção completa incluindo sistemas elétricos, hidráulicos, pintura e reparos gerais.",
+        icon: <ClipboardCheck className="w-8 h-8" />
       },
       {
-        icon: <ClipboardCheck size={24} className="text-primary" />,
-        title: "Gestão de Obras",
-        description: "Execução de reformas e obras com equipe especializada e materiais de qualidade, entregando projetos no prazo e com excelência.",
-        details: (
-          <>
-            <p className="mb-4">Realizamos obras e reformas em ambientes residenciais, comerciais e industriais, com acompanhamento técnico e garantia de qualidade em todas as etapas.</p>
-            <ul className="list-disc pl-5 mb-4 text-gray-300">
-              <li>Reformas de espaços comerciais e adequações de layout</li>
-              <li>Construção de áreas específicas e revitalização de ambientes</li>
-              <li>Gestão de obras com cronograma e orçamento detalhado</li>
-              <li>Equipe própria e fornecedores homologados</li>
-              <li>Entrega com garantia e pós-obra</li>
-            </ul>
-            <p className="mb-2 font-semibold text-white">Diferenciais:</p>
-            <ul className="list-disc pl-5 text-gray-300">
-              <li>Planejamento detalhado e acompanhamento em tempo real</li>
-              <li>Materiais de alta qualidade</li>
-              <li>Atendimento personalizado e flexível</li>
-            </ul>
-          </>
-        ),
-        link: "/contato"
+        title: "Reparos Residenciais",
+        description: "Soluções rápidas e eficientes para reparos domésticos de qualquer complexidade.",
+        details: "Atendimento ágil para reparos emergenciais e manutenção residencial.",
+        icon: <Wrench className="w-8 h-8" />
       }
     ]
   }
@@ -120,7 +127,10 @@ export default function ServicosPage() {
   const [expandedService, setExpandedService] = useState<string | null>(null);
 
   return (
-    <div className="min-h-screen w-full bg-[#0f172a] relative">
+    <div className="min-h-screen w-full bg-[#0f172a] relative overflow-hidden">
+      {/* Meteors Background */}
+      <Meteors number={20} />
+      
       {/* Blue Radial Glow Background */}
       <div
         className="absolute inset-0 z-0"
@@ -128,6 +138,7 @@ export default function ServicosPage() {
           backgroundImage: `radial-gradient(circle 800px at 50% 50%, rgba(59,130,246,0.15), transparent)`,
         }}
       />
+      
       <div className="relative z-10">
         {/* Hero Section */}
         <section className="text-white py-20 md:py-28">
@@ -171,7 +182,7 @@ export default function ServicosPage() {
                 {group.services.map((service) => (
                   <div
                     key={service.title}
-                    className={`bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/10 transition-all hover:shadow-xl hover:bg-white/20 ${
+                    className={`bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/10 transition-all hover:shadow-xl hover:bg-white/20 cursor-pointer ${
                       expandedService === service.title ? 'ring-2 ring-blue-400' : ''
                     }`}
                     onClick={(e) => {
@@ -191,7 +202,7 @@ export default function ServicosPage() {
                       </div>
                     </div>
                     {expandedService === service.title && (
-                      <div className="mt-8 animate-in fade-in slide-in-from-top-4">
+                      <div className="mt-8">
                         <div className="text-gray-200">
                           {service.details}
                         </div>
@@ -202,7 +213,7 @@ export default function ServicosPage() {
                           <Button 
                             variant="outline" 
                             size="lg"
-                            className="text-white-800 hover:text-white-900 border-gray-400 hover:bg-gray-100"
+                            className="text-white border-gray-400 hover:bg-gray-100 hover:text-gray-900"
                             onClick={(e) => {
                               e.preventDefault();
                               setExpandedService(null);
@@ -216,7 +227,7 @@ export default function ServicosPage() {
                     {expandedService !== service.title && (
                       <div className="mt-6">
                         <button 
-                          className="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 transition-colors"
+                          className="inline-flex items-center gap-2 text-blue-400 font-medium hover:text-blue-300 transition-colors"
                           onClick={(e) => {
                             e.preventDefault();
                             setExpandedService(service.title);

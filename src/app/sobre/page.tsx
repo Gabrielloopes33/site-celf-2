@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Award, Clock, Heart, Users, ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 export const metadata = {
   title: "Sobre Nós | CELF",
@@ -79,8 +80,14 @@ export default function SobrePage() {
                   Nossa trajetória é marcada por crescimento sustentável, inovação constante e parcerias duradouras, refletindo nossos valores e compromisso com o sucesso dos nossos clientes.
                 </p>
               </div>
-              <div className="bg-gray-100 h-[400px] rounded-lg flex items-center justify-center shadow-inner">
-                <p className="text-gray-400 text-lg">Imagem da Empresa</p>
+              <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="/images/IMG_0035.jpg"
+                  alt="Equipe CELF em ação"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
             </div>
           </div>
