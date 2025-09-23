@@ -25,7 +25,7 @@ export function Header() {
         ? 'bg-blue-950/70 backdrop-blur-xl border-b border-blue-200 shadow-lg' 
         : 'bg-blue-950/40 backdrop-blur-xl shadow-md'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
+      <div className="max-w-7xl mx-auto px-12 sm:px-6 lg:px-4">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <Logo className="w-24 h-auto" />
@@ -35,7 +35,7 @@ export function Header() {
           <div className="flex md:hidden">
             <button
               type="button"
-              className="text-amber-50-600 hover:text-blue-600 p-2"
+              className="text-white hover:text-blue-600 p-2"
               onClick={toggleMobileMenu}
             >
               {mobileMenuOpen ? (
@@ -66,6 +66,10 @@ export function Header() {
             <Link href="/port" className="text-amber-50 hover:text-blue-600 font-medium transition-colors">
               Portfólio
             </Link>
+            <Link href="/trabalhe-conosco" className="text-amber-50 hover:text-blue-600 font-medium transition-colors">
+              Trabalhe Conosco
+            </Link>
+            
           </nav>
 
           {/* Contact Info & CTA */}
@@ -131,7 +135,7 @@ export function Header() {
             <div className="pt-4 border-t border-gray-100">
               <div className="flex items-center justify-center mb-4 text-sm text-gray-600">
                 <Phone className="w-4 h-4 mr-2 text-blue-600" />
-                <span className="font-medium">(11) 99999-9999</span>
+                <span className="font-medium">(31) 9 8669-0368</span>
               </div>
               <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white" onClick={() => setMobileMenuOpen(false)}>
                 <Link href="/contato">Solicitar Proposta</Link>
