@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   title: "CELF — Soluções para Conservação e Manutenção",
   description: "Soluções completas para conservação e manutenção de espaços condominiais, comerciais e industriais",
   icons: {
-    icon: "/favicon.ico",               // navegadoes
-    shortcut: "/favicon.ico",           // atalho
-    apple: "/apple-touch-icon.png"      // iOS
+    icon: "/public/favicon.ico",               // navegadoes
+    shortcut: "/public/favicon.ico",           // atalho
+    apple: "/public/favicon.ico"      // iOS
   }
 };
 

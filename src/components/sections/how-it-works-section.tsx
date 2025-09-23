@@ -1,26 +1,27 @@
-
-
 "use client";
 
-
 import { useState, useEffect } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Zap, Users, TrendingUp } from "lucide-react";
+import Image from "next/image";
 
 const cards = [
   {
     title: "Implementação mais rápida que qualquer outra plataforma.",
     description: "Aumento de 10x na velocidade de entrega de serviços.",
-    color: "bg-blue-600",
+    icon: <Zap className="w-6 h-6" />,
+    gradient: "from-blue-600 to-blue-800",
   },
   {
     title: "Entregue a melhor experiência para moradores e funcionários.",
     description: "Mais de 5000+ pessoas usando nossa plataforma.",
-    color: "bg-green-600",
+    icon: <Users className="w-6 h-6" />,
+    gradient: "from-green-600 to-green-800",
   },
   {
-    title: "Implementações de longo prazo, com ROI positivo que crescem com você.",
+    title: "Implementações com ROI positivo que crescem com você.",
     description: "Milhões em economia de custos para nossos parceiros.",
-    color: "bg-purple-600",
+    icon: <TrendingUp className="w-6 h-6" />,
+    gradient: "from-purple-600 to-purple-800",
   },
 ];
 
@@ -56,38 +57,61 @@ export function HowItWorksSection() {
           </p>
         </div>
 
-        {/* Cards animados com texto do modelo antigo */}
+        {/* Cards com estilo Gravity */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {cards.map((card, index) => (
             <div
               key={index}
               data-index={index}
-              className={`howit-card group relative ${card.color} rounded-2xl p-8 flex flex-col items-start shadow-lg transition-all duration-700 transform ${
+              className={`howit-card group relative transition-all duration-700 transform ${
                 visibleCards.includes(index)
                   ? 'translate-y-0 opacity-100'
                   : 'translate-y-8 opacity-0'
               }`}
               style={{ transitionDelay: `${index * 120}ms` }}
             >
-              <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-white/20 mb-6">
-                <ArrowRight className="w-8 h-8 text-white" />
+              {/* Card principal */}
+              <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-2xl transition-all duration-300 group-hover:-translate-y-2">
+                {/* Ícone com gradiente */}
+                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${card.gradient} text-white mb-6 shadow-lg`}>
+                  {card.icon}
+                </div>
+
+                {/* Conteúdo */}
+                <h3 className="text-xl font-bold text-gray-900 mb-4 leading-tight">
+                  {card.title}
+                </h3>
+                <p className="text-gray-600 text-base leading-relaxed">
+                  {card.description}
+                </p>
+
+                {/* Seta decorativa */}
+                <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <ArrowRight className="w-5 h-5 text-gray-400" />
+                </div>
+
+                {/* Borda animada no hover */}
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${card.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none`}></div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">
-                {card.title}
-              </h3>
-              <p className="text-white/90 text-lg">
-                {card.description}
-              </p>
+
+              {/* Elemento de sombra/profundidade */}
+              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${card.gradient} opacity-20 blur-xl -z-10 group-hover:opacity-30 transition-opacity duration-300`}></div>
             </div>
           ))}
         </div>
 
         {/* Espaço para fotos ou galeria */}
         <div className="w-full flex flex-col items-center">
-          <div className="w-full max-w-4xl aspect-[4/2] bg-gradient-to-br from-blue-200 to-purple-200 rounded-2xl flex items-center justify-center mb-4">
-            <span className="text-blue-800 font-semibold text-xl text-center">Espaço reservado para fotos ou galeria</span>
+          <div className="w-full max-w-4xl aspect-[4/2] bg-gradient-to-br from-blue-200 to-purple-200 rounded-2xl overflow-hidden shadow-lg">
+            <Image
+              src="/images/IMG_0030.jpg"
+              alt="Exemplo de condomínio usando nossa plataforma"
+              width={1200}
+              height={600}
+              className="w-full h-full object-cover"
+              priority
+            />
           </div>
-          {/* Adicione aqui sua galeria de imagens ou componentes de foto */}
         </div>
       </div>
     </section>
