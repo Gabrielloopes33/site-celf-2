@@ -166,42 +166,136 @@ export default function SobrePage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Team member cards would go here - placeholder for now */}
+              {/* Team member cards */}
               <div className="bg-gray-50 rounded-lg overflow-hidden text-center shadow hover:shadow-lg transition-shadow">
-                <div className="bg-gray-200 h-64 flex items-center justify-center">
-                  <p className="text-gray-400">Foto</p>
+                <div className="relative h-64 w-full">
+                  <Image
+                    src="/images/team/fabiano.PNG"
+                    alt="Fabiano Lopes Vidal"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-1 text-primary">Nome Completo</h3>
-                  <p className="text-secondary mb-3">Cargo / Função</p>
+                  <h3 className="text-xl font-bold mb-1 text-primary">Fabiano Lopes Vidal</h3>
+                  <p className="text-secondary mb-3">Comercial</p>
                   <p className="text-gray-600">
-                    Breve descrição sobre a experiência e especialização do profissional.
+                    Especialista em estratégias comerciais, com sólida vivência em negociação e atendimento, sempre buscando soluções que agreguem valor aos clientes.
                   </p>
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-lg overflow-hidden text-center">
-                <div className="bg-gray-200 h-64 flex items-center justify-center">
-                  <p className="text-gray-500">Foto</p>
+              <div className="bg-gray-50 rounded-lg overflow-hidden text-center shadow hover:shadow-lg transition-shadow">
+                <div className="relative h-64 w-full">
+                  <Image
+                    src="/images/team/ELIZA.png"
+                    alt="Eliza Lopes Vidal"
+                    fill 
+                    className="object-cover object-left-top"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-1">Nome Completo</h3>
-                  <p className="text-secondary mb-3">Cargo / Função</p>
+                  <h3 className="text-xl font-bold mb-1">Eliza Lopes Vidal</h3>
+                  <p className="text-secondary mb-3">Financeiro /RH</p>
                   <p className="text-gray-600">
-                    Breve descrição sobre a experiência e especialização do profissional.
+                    Especialista em processos financeiros e gestão de pessoas, contribuindo para a sustentabilidade e crescimento da empresa.
                   </p>
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-lg overflow-hidden text-center">
-                <div className="bg-gray-200 h-64 flex items-center justify-center">
-                  <p className="text-gray-500">Foto</p>
+              <div className="bg-gray-50 rounded-lg overflow-hidden text-center shadow hover:shadow-lg transition-shadow">
+                <div className="relative h-64 w-full">
+                  <Image
+                    src="/images/team/CARLIN.png"
+                    alt="Nome do Profissional 3"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-1">Nome Completo</h3>
-                  <p className="text-secondary mb-3">Cargo / Função</p>
+                  <h3 className="text-xl font-bold mb-1">Carlos Lopes Vidal</h3>
+                  <p className="text-secondary mb-3">Engenheiro Elétrico</p>
                   <p className="text-gray-600">
-                    Breve descrição sobre a experiência e especialização do profissional.
+                    Atua no desenvolvimento de projetos elétricos, garantindo qualidade técnica, conformidade às normas e confiabilidade operacional.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 rounded-lg overflow-hidden text-center shadow hover:shadow-lg transition-shadow">
+                <div className="relative h-64 w-full">
+                  <Image
+                    src="/images/team/CARLIN2.png"
+                    alt="Nome do Profissional 3"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-1">Lígia Pereira Santos</h3>
+                  <p className="text-secondary mb-3">Engenheira Civil</p>
+                  <p className="text-gray-600">
+                    Atua no desenvolvimento e acompanhamento de projetos civis, assegurando inovação, segurança e alto padrão construtivo.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 rounded-lg overflow-hidden text-center shadow hover:shadow-lg transition-shadow">
+                <div className="relative h-64 w-full">
+                  <Image
+                    src="/images/team/CARLIN2.png"
+                    alt="Nome do Profissional 3"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-1">Heber Silva</h3>
+                  <p className="text-secondary mb-3">Engenheiro Elétrico</p>
+                  <p className="text-gray-600">
+                    Especialista em engenharia elétrica, dedicado à criação de soluções que unem tecnologia, sustentabilidade e desempenho.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 rounded-lg overflow-hidden text-center shadow hover:shadow-lg transition-shadow">
+                <div className="relative h-64 w-full">
+                  <Image
+                    src="/images/team/HELIZANGELA.png"
+                    alt="Nome do Profissional 3"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-1">Helizangela Moreira</h3>
+                  <p className="text-secondary mb-3">RH / Gestão Condominial</p>
+                  <p className="text-gray-600">
+                    Atua no setor de Recursos Humanos e Gestão Condominial, com ênfase em relacionamento, organização e soluções administrativas.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 rounded-lg overflow-hidden text-center shadow hover:shadow-lg transition-shadow">
+                <div className="relative h-64 w-full">
+                  <Image
+                    src="/images/team/GABRIEL.png"
+                    alt="Nome do Profissional 3"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-1">Gabriel Lopes Moraes</h3>
+                  <p className="text-secondary mb-3">Tecnologia e Marketing</p>
+                  <p className="text-gray-600">
+                    Especialista em tecnologia e marketing, com foco em inovação, presença digital e crescimento estratégico da empresa.
                   </p>
                 </div>
               </div>
