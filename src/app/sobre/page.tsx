@@ -227,7 +227,7 @@ export default function SobrePage() {
               <div className="bg-gray-50 rounded-lg overflow-hidden text-center shadow hover:shadow-lg transition-shadow">
                 <div className="relative h-64 w-full">
                   <Image
-                    src="/images/team/CARLIN2.png"
+                    src="/images/team/LIGIA.png"
                     alt="Nome do Profissional 3"
                     fill
                     className="object-cover object-center"
@@ -246,7 +246,7 @@ export default function SobrePage() {
               <div className="bg-gray-50 rounded-lg overflow-hidden text-center shadow hover:shadow-lg transition-shadow">
                 <div className="relative h-64 w-full">
                   <Image
-                    src="/images/team/CARLIN2.png"
+                    src="/images/team/HEBER.png"
                     alt="Nome do Profissional 3"
                     fill
                     className="object-cover object-center"
